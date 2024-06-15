@@ -1,0 +1,14 @@
+C:\Users\trasc\Desktop\ssi\bin\Debug\net8.0-windows\ssi.exe
+C:\Users\trasc\Desktop\ssi\bin\Debug\net8.0-windows\ssi.deps.json
+C:\Users\trasc\Desktop\ssi\bin\Debug\net8.0-windows\ssi.runtimeconfig.json
+C:\Users\trasc\Desktop\ssi\bin\Debug\net8.0-windows\ssi.dll
+C:\Users\trasc\Desktop\ssi\bin\Debug\net8.0-windows\ssi.pdb
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.AssemblyInfoInputs.cache
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.AssemblyInfo.cs
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.csproj.CoreCompileInputs.cache
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.dll
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\refint\ssi.dll
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.pdb
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.genruntimeconfig.cache
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ref\ssi.dll
