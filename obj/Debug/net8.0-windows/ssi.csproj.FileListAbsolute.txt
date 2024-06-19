@@ -12,3 +12,4 @@ C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\refint\ssi.dll
 C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.pdb
 C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.genruntimeconfig.cache
 C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ref\ssi.dll
+C:\Users\trasc\Desktop\ssi\obj\Debug\net8.0-windows\ssi.sourcelink.json

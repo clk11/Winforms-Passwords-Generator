@@ -9,7 +9,6 @@
         private NumericUpDown numericUpDownMaxNumbers;
         private NumericUpDown numericUpDownMinSpecials;
         private NumericUpDown numericUpDownMaxSpecials;
-        private NumericUpDown numericUpDownTotalLength;
         private NumericUpDown numericUpDownNumPasswords;
         private NumericUpDown numericUpDownSeparatorInterval;
         private Button generateButton;
@@ -20,7 +19,6 @@
         private Label labelMaxNumbers;
         private Label labelMinSpecials;
         private Label labelMaxSpecials;
-        private Label labelTotalLength;
         private Label labelNumPasswords;
         private Label labelSeparatorInterval;
 
@@ -41,7 +39,6 @@
             this.numericUpDownMaxNumbers = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownMinSpecials = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownMaxSpecials = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownTotalLength = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownNumPasswords = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownSeparatorInterval = new System.Windows.Forms.NumericUpDown();
             this.generateButton = new System.Windows.Forms.Button();
@@ -52,7 +49,6 @@
             this.labelMaxNumbers = new System.Windows.Forms.Label();
             this.labelMinSpecials = new System.Windows.Forms.Label();
             this.labelMaxSpecials = new System.Windows.Forms.Label();
-            this.labelTotalLength = new System.Windows.Forms.Label();
             this.labelNumPasswords = new System.Windows.Forms.Label();
             this.labelSeparatorInterval = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinAlphabets)).BeginInit();
@@ -61,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxNumbers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinSpecials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpecials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumPasswords)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSeparatorInterval)).BeginInit();
             this.SuspendLayout();
@@ -108,23 +103,16 @@
             this.numericUpDownMaxSpecials.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownMaxSpecials.TabIndex = 5;
             // 
-            // lungimea parolei
-            // 
-            this.numericUpDownTotalLength.Location = new System.Drawing.Point(240, 168);
-            this.numericUpDownTotalLength.Name = "numericUpDownTotalLength";
-            this.numericUpDownTotalLength.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownTotalLength.TabIndex = 6;
-            // 
             // numarul de parole
             // 
-            this.numericUpDownNumPasswords.Location = new System.Drawing.Point(240, 194);
+            this.numericUpDownNumPasswords.Location = new System.Drawing.Point(240, 168);
             this.numericUpDownNumPasswords.Name = "numericUpDownNumPasswords";
             this.numericUpDownNumPasswords.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownNumPasswords.TabIndex = 7;
             // 
             // interval pentru separator
             // 
-            this.numericUpDownSeparatorInterval.Location = new System.Drawing.Point(240, 220);
+            this.numericUpDownSeparatorInterval.Location = new System.Drawing.Point(240, 194);
             this.numericUpDownSeparatorInterval.Name = "numericUpDownSeparatorInterval";
             this.numericUpDownSeparatorInterval.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownSeparatorInterval.TabIndex = 8;
@@ -158,7 +146,7 @@
 
 
             this.labelMaxAlphabets.AutoSize = true;
-            this.labelMaxAlphabets.Location = new System.Drawing.Point(12, 40);
+            this.labelMaxAlphabets.Location = new System.Drawing.Point(12, 40); 
             this.labelMaxAlphabets.Name = "labelMaxAlphabets";
             this.labelMaxAlphabets.Size = new System.Drawing.Size(121, 13);
             this.labelMaxAlphabets.TabIndex = 12;
@@ -197,16 +185,8 @@
             this.labelMaxSpecials.Text = "Max caractere speciale:";
 
 
-            this.labelTotalLength.AutoSize = true;
-            this.labelTotalLength.Location = new System.Drawing.Point(12, 170);
-            this.labelTotalLength.Name = "labelTotalLength";
-            this.labelTotalLength.Size = new System.Drawing.Size(75, 13);
-            this.labelTotalLength.TabIndex = 17;
-            this.labelTotalLength.Text = "Lungimea parolelor:";
-
-
             this.labelNumPasswords.AutoSize = true;
-            this.labelNumPasswords.Location = new System.Drawing.Point(12, 196);
+            this.labelNumPasswords.Location = new System.Drawing.Point(12, 170);
             this.labelNumPasswords.Name = "labelNumPasswords";
             this.labelNumPasswords.Size = new System.Drawing.Size(112, 13);
             this.labelNumPasswords.TabIndex = 18;
@@ -214,7 +194,7 @@
 
 
             this.labelSeparatorInterval.AutoSize = true;
-            this.labelSeparatorInterval.Location = new System.Drawing.Point(12, 222);
+            this.labelSeparatorInterval.Location = new System.Drawing.Point(12, 196);
             this.labelSeparatorInterval.Name = "labelSeparatorInterval";
             this.labelSeparatorInterval.Size = new System.Drawing.Size(100, 13);
             this.labelSeparatorInterval.TabIndex = 19;
@@ -226,7 +206,6 @@
             this.ClientSize = new System.Drawing.Size(720, 281);
             this.Controls.Add(this.labelSeparatorInterval);
             this.Controls.Add(this.labelNumPasswords);
-            this.Controls.Add(this.labelTotalLength);
             this.Controls.Add(this.labelMaxSpecials);
             this.Controls.Add(this.labelMinSpecials);
             this.Controls.Add(this.labelMaxNumbers);
@@ -237,7 +216,6 @@
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.numericUpDownSeparatorInterval);
             this.Controls.Add(this.numericUpDownNumPasswords);
-            this.Controls.Add(this.numericUpDownTotalLength);
             this.Controls.Add(this.numericUpDownMaxSpecials);
             this.Controls.Add(this.numericUpDownMinSpecials);
             this.Controls.Add(this.numericUpDownMaxNumbers);
@@ -252,7 +230,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxNumbers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinSpecials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpecials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumPasswords)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSeparatorInterval)).EndInit();
             this.ResumeLayout(false);
