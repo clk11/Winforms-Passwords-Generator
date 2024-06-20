@@ -184,7 +184,7 @@
             this.labelPasswordLength.Name = "labelPasswordLength";
             this.labelPasswordLength.Size = new System.Drawing.Size(99, 13);
             this.labelPasswordLength.TabIndex = 18;
-            this.labelPasswordLength.Text = "Lungimea parolei"; // New label for password length
+            this.labelPasswordLength.Text = "Lungimea parolei"; 
             // 
             // labelNumPasswords
             // 
@@ -217,9 +217,9 @@
             // 
             this.generateButton.Location = new System.Drawing.Point(300, 230);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(75, 23);
+            this.generateButton.Size = new System.Drawing.Size(100, 23);
             this.generateButton.TabIndex = 17;
-            this.generateButton.Text = "Generate";
+            this.generateButton.Text = "Genereaza parole";
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
@@ -228,8 +228,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 311);
-            this.Controls.Add(this.labelPasswordLength); // Add new label to form
-            this.Controls.Add(this.numericUpDownPasswordLength); // Add new numericUpDown to form
+            this.Controls.Add(this.labelPasswordLength); 
+            this.Controls.Add(this.numericUpDownPasswordLength); 
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.listBoxPasswords);
             this.Controls.Add(this.labelSeparatorInterval);
@@ -258,7 +258,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxSpecials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumPasswords)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSeparatorInterval)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPasswordLength)).EndInit(); // Initialize new numericUpDown
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPasswordLength)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,14 +274,14 @@
         private System.Windows.Forms.NumericUpDown numericUpDownMaxSpecials;
         private System.Windows.Forms.NumericUpDown numericUpDownNumPasswords;
         private System.Windows.Forms.NumericUpDown numericUpDownSeparatorInterval;
-        private System.Windows.Forms.NumericUpDown numericUpDownPasswordLength; // New numericUpDown for password length
+        private System.Windows.Forms.NumericUpDown numericUpDownPasswordLength; 
         private System.Windows.Forms.Label labelMinAlphabets;
         private System.Windows.Forms.Label labelMaxAlphabets;
         private System.Windows.Forms.Label labelMinNumbers;
         private System.Windows.Forms.Label labelMaxNumbers;
         private System.Windows.Forms.Label labelMinSpecials;
         private System.Windows.Forms.Label labelMaxSpecials;
-        private System.Windows.Forms.Label labelPasswordLength; // New label for password length
+        private System.Windows.Forms.Label labelPasswordLength; 
         private System.Windows.Forms.Label labelNumPasswords;
         private System.Windows.Forms.Label labelSeparatorInterval;
         private System.Windows.Forms.ListBox listBoxPasswords;
