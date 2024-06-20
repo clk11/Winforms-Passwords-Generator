@@ -1,6 +1,6 @@
 # Parameterized Password Generator
 
-This repository hosts a WinForms application written in C#, designed for generating customized passwords based on specific criteria such as minimum and maximum counts of alphabetic characters, numeric digits, special characters, and optional separators.
+This repository hosts a WinForms application written in C#, designed for generating customized passwords based on specific criteria such as minimum and maximum counts of alphabetic characters, numeric digits, special characters, length of the passwords, and optional separators.
 
 ## Overview
 
@@ -12,6 +12,7 @@ The application allows users to input parameters directly into the UI and genera
   - Specify minimum and maximum counts for uppercase and lowercase alphabetic characters.
   - Define minimum and maximum counts for numeric digits.
   - Set minimum and maximum counts for special characters.
+  - Set the length of the passwords
   - Toggle separators and adjust their interval within generated passwords.
 
 - **Password Generation**:
@@ -28,7 +29,7 @@ The application allows users to input parameters directly into the UI and genera
    - Enter desired parameter values directly into the provided fields.
 
 2. **Generate Passwords**:
-   - Click the "Generate Passwords" button to initiate the password generation process.
+   - Click the "Genereaza parole" button to initiate the password generation process.
 
 3. **View Generated Passwords**:
    - The generated passwords will be displayed in the application's list box are.
