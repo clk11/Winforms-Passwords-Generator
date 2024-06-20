@@ -25,12 +25,37 @@ namespace ssi
             int maxSpecials = (int)numericUpDownMaxSpecials.Value;
             int numPasswords = (int)numericUpDownNumPasswords.Value;
             int separatorInterval = (int)numericUpDownSeparatorInterval.Value;
+            int passwordLength = (int)numericUpDownPasswordLength.Value; 
             bool separators = separatorInterval > 0;
 
-            int totalLength = maxAlphabets + maxNumbers + maxSpecials;
+            int totalMinCharacters = minAlphabets + minNumbers + minSpecials;
+            int totalMaxCharacters = maxAlphabets + maxNumbers + maxSpecials;
 
-            List<string> passwords = GeneratePasswords(minAlphabets, maxAlphabets, minNumbers, maxNumbers, minSpecials, maxSpecials, totalLength, numPasswords, separators, separatorInterval);
-            
+            if (totalMinCharacters > passwordLength)
+            {
+                MessageBox.Show("Numarul total minim de caractere depaseste lungimea specificata a parolei.");
+                return;
+            }
+
+            if (totalMaxCharacters < passwordLength)
+            {
+                MessageBox.Show("Numarul total maxim de caractere este mai mic decât lungimea specificats a parolei.");
+                return;
+            }
+
+            List<string> passwords = GeneratePasswords(
+                minAlphabets,
+                maxAlphabets,
+                minNumbers,
+                maxNumbers,
+                minSpecials,
+                maxSpecials,
+                passwordLength,
+                numPasswords,
+                separators,
+                separatorInterval
+            );
+
             DisplayPasswords(passwords);
         }
 
@@ -38,101 +63,87 @@ namespace ssi
         {
             listBoxPasswords.Items.Clear();
             foreach (var password in passwords)
-            {
                 listBoxPasswords.Items.Add(password);
-            }
         }
 
-        private List<string> GeneratePasswords(int minAlphabetic, int maxAlphabetic, int minNumeric, int maxNumeric, int minSpecial, int maxSpecial, int totalCharacters, int numPasswords, bool separators, int separatorInterval)
+        private List<string> GeneratePasswords(
+            int minAlphabetic,
+            int maxAlphabetic,
+            int minNumeric,
+            int maxNumeric,
+            int minSpecial,
+            int maxSpecial,
+            int totalCharacters,
+            int numPasswords,
+            bool separators,
+            int separatorInterval
+        )
         {
             List<string> passwords = new List<string>();
 
             for (int i = 0; i < numPasswords; i++)
             {
-                string password = GeneratePassword(minAlphabetic, maxAlphabetic, minNumeric, maxNumeric, minSpecial, maxSpecial, totalCharacters, separators, separatorInterval);
+                string password = GeneratePassword(
+                    minAlphabetic,
+                    maxAlphabetic,
+                    minNumeric,
+                    maxNumeric,
+                    minSpecial,
+                    maxSpecial,
+                    totalCharacters,
+                    separators,
+                    separatorInterval
+                );
                 passwords.Add(password);
             }
 
             return passwords;
         }
 
-        private static string GeneratePassword(int minAlphabetic, int maxAlphabetic, int minNumeric, int maxNumeric, int minSpecial, int maxSpecial, int totalCharacters, bool separators, int separatorInterval)
+        private string GeneratePassword(
+            int minAlphabetic,
+            int maxAlphabetic,
+            int minNumeric,
+            int maxNumeric,
+            int minSpecial,
+            int maxSpecial,
+            int totalCharacters,
+            bool separators,
+            int separatorInterval
+        )
         {
-            LFSR lfsr = new LFSR();
-            List<char> sequences = lfsr.GetSequences();
-
             Random random = new Random();
             List<char> passwordChars = new List<char>();
+            List<char> sequences = GetSequences();
 
-            int alphabeticCount = random.Next(minAlphabetic, maxAlphabetic + 1);
-            AddRandomCharacters(passwordChars, sequences, alphabeticCount, 'A', 'Z', 'a', 'z');
-
-            int numericCount = random.Next(minNumeric, maxNumeric + 1);
-            AddRandomCharacters(passwordChars, sequences, numericCount, '0', '9');
-
+            int alphabetCount = random.Next(minAlphabetic, maxAlphabetic + 1);
+            int numberCount = random.Next(minNumeric, maxNumeric + 1);
             int specialCount = random.Next(minSpecial, maxSpecial + 1);
-            AddRandomCharacters(passwordChars, sequences, specialCount, '!', '/', ':', '@', '[', '`', '{', '~');
 
-            passwordChars = EnsureCorrectCounts(passwordChars, totalCharacters, alphabeticCount, numericCount, specialCount, random, sequences, minAlphabetic, maxAlphabetic, minNumeric, maxNumeric, minSpecial, maxSpecial);
-
-            passwordChars = Shuffle(passwordChars, random);
-
-            if (separators && separatorInterval > 0)
+            while (passwordChars.Count < alphabetCount)
             {
-                for (int i = separatorInterval; i < passwordChars.Count; i += separatorInterval + 1)
-                {
-                    passwordChars.Insert(i, '-');
-                }
+                char c = sequences[random.Next(sequences.Count)];
+                if (char.IsLetter(c))
+                    passwordChars.Add(c);
             }
 
-            return new string(passwordChars.Take(totalCharacters).ToArray());
-        }
-
-        private static void AddRandomCharacters(List<char> passwordChars, List<char> sequences, int count, params char[] ranges)
-        {
-            Random random = new Random();
-            for (int i = 0; i < count; i++)
+            while (passwordChars.Count < alphabetCount + numberCount)
             {
-                char nextChar;
-                do
-                {
-                    nextChar = sequences[random.Next(sequences.Count)];
-                } while (!IsCharInRanges(nextChar, ranges));
-
-                passwordChars.Add(nextChar);
-            }
-        }
-
-        private static bool IsCharInRanges(char c, params char[] ranges)
-        {
-            for (int i = 0; i < ranges.Length; i += 2)
-            {
-                if (c >= ranges[i] && c <= ranges[i + 1])
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private static List<char> EnsureCorrectCounts(List<char> passwordChars, int totalCharacters, int alphabeticCount, int numericCount, int specialCount, Random random, List<char> sequences, int minAlphabetic, int maxAlphabetic, int minNumeric, int maxNumeric, int minSpecial, int maxSpecial)
-        {
-            while (alphabeticCount > maxAlphabetic)
-            {
-                passwordChars.Remove(passwordChars.First(char.IsLetter));
-                alphabeticCount--;
+                char c = sequences[random.Next(sequences.Count)];
+                if (char.IsDigit(c))
+                    passwordChars.Add(c);
             }
 
-            while (numericCount > maxNumeric)
+            while (passwordChars.Count < alphabetCount + numberCount + specialCount)
             {
-                passwordChars.Remove(passwordChars.First(char.IsDigit));
-                numericCount--;
+                char c = sequences[random.Next(sequences.Count)];
+                if (!char.IsLetterOrDigit(c))
+                    passwordChars.Add(c);
             }
 
-            while (specialCount > maxSpecial)
+            while (passwordChars.Count > alphabetCount + numberCount + specialCount)
             {
-                passwordChars.Remove(passwordChars.First(c => !char.IsLetterOrDigit(c)));
-                specialCount--;
+                passwordChars.RemoveAt(passwordChars.Count - 1);
             }
 
             while (passwordChars.Count < totalCharacters)
@@ -141,7 +152,23 @@ namespace ssi
                 passwordChars.Add(nextChar);
             }
 
-            return passwordChars;
+            passwordChars = Shuffle(passwordChars, random);
+
+            if (separators)
+            {
+                for (int i = separatorInterval; i < passwordChars.Count; i += separatorInterval + 1)
+                {
+                    passwordChars.Insert(i, '-');
+                }
+            }
+
+            return new string(passwordChars.ToArray());
+        }
+
+        private List<char> GetSequences()
+        {
+            LFSR lfsr = new LFSR();
+            return lfsr.GetSequences();
         }
 
         private static List<char> Shuffle(List<char> list, Random random)
